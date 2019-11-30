@@ -1,0 +1,47 @@
+# distrib_lfs
+
+##############################################
+distributive linux from scratch
+##############################################
+
+##############################################
+# create new lxc environment
+#############################################
+  sudo lxc-create -t ubuntu -n ubuntu_16_lfs
+  sudo lxc-start --name ubuntu_16_lfs
+
+##############################################
+# for correct access right in lxc
+# change password for user
+##############################################
+  sudo lxc-attach -n user1
+
+  root@user1:/# passwd ubuntu
+   Enter new UNIX password: 
+   Retype new UNIX password: 
+   passwd: password updated successfully
+
+  exit
+
+##############################################
+# goto instelled environment
+##############################################
+  sudo lxc-ls --fancy
+
+  ssh ubuntu@ip
+
+##############################################
+# clone repo
+##############################################
+  sudo apt update
+  sudo apt upgrade
+  sudo apt install git
+  sudo apt install curl
+  sudo apt install ca-certificates
+
+  # make sure that you have correct access right
+  # to repository
+
+  git clone https://github.com/Morohiko/distrib_lfs.git
+  cd distrib_lfs
+
